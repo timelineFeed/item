@@ -48,7 +48,7 @@ message ItemDetail {
   string cover_url = 4;
   string video_url = 5;
   string picture_url = 6;
-  string context = 7;
+  string content = 7;
 }
 
 message ItemDetailWithID {
