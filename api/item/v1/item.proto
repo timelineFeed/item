@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package helloworld.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "item/api/item/v1;v1";
+
+
+service Item {
+  rpc CreateItem(CreateItemRequest) returns (CreateItemReply) {};
+  rpc UpdateItem(UpdateItemRequest) returns (UpdateItemReply) {};
+  rpc ItemDetail(ItemDetailRequest) returns (ItemDetailReply) {};
+}
+
+message CreateItemRequest{
+  ItemDetail item = 1;
+
+}
+message CreateItemReply {
+  uint64 id = 1;
+  ItemDetail item = 2;
+
+}
+
+message UpdateItemRequest {
+ ItemDetailWithID item = 1;
+ uint64 id = 2;
+ uint64 operator_id = 3;
+}
+
+message UpdateItemReply {
+  ItemDetailWithID item = 1;
+}
+
+message  ItemDetailRequest {
+  uint64 id = 1;
+}
+
+message ItemDetailReply {
+ ItemDetailWithID item = 1;
+}
+
+message ItemDetail {
+  uint64 author_id = 1;
+  string title = 2;
+  uint32 type = 3;
+  string cover_url = 4;
+  string video_url = 5;
+  string picture_url = 6;
+  string context = 7;
+}
+
+message ItemDetailWithID {
+  ItemDetail item = 1;
+  uint64 id = 2;
+  uint32 status = 3;
+}
+
