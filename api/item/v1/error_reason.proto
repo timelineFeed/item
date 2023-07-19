@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package helloworld.v1;
+package item.v1;
 
 option go_package = "item/api/item/v1;v1";
 
